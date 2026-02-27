@@ -52,7 +52,8 @@ space-rocks
 # Superluminous SN
 sncosmo==2.12.1
 xgboost==2.1.4
-dust_extinction==1.7
+# Need python >= 3.10 to upgrade
+dust_extinction==1.5
 
 # TDE
 dustmaps==1.0.14
