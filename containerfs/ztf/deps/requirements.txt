@@ -18,8 +18,10 @@ avro-python3
 fastavro==1.6.0
 
 # Fink core
-fink_filters>=7.28
-fink-utils>=0.57.0
+#fink_filters>=7.28
+#fink-utils>=0.57.0
+git+https://github.com/astrolabsoftware/fink-filters@7.29
+git+https://github.com/astrolabsoftware/fink-utils@0.58.0
 fink-spins>=0.3.8
 fink-tns>=0.14
 
