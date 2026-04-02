@@ -159,7 +159,7 @@ jobs:
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
             -v $PWD:/tmp/output \
             -v /tmp/trivy-cache:/root/.cache/trivy \
-            aquasec/trivy:latest image \
+            aquasec/trivy:0.69.3 image \
             --format sarif --output /tmp/output/trivy-results-${{ inputs.artifact_name }}.sarif \
             --cache-dir /root/.cache/trivy \
             --timeout 15m \
