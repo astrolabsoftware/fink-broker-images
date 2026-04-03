@@ -19,7 +19,7 @@ fastavro==1.9.4
 #fink_filters>=7.28
 #fink-utils>=0.57.0
 git+https://github.com/astrolabsoftware/fink-filters@7.30
-git+https://github.com/astrolabsoftware/fink-utils@0.58.2
+git+https://github.com/astrolabsoftware/fink-utils@0.59.0
 fink-spins>=0.3.8
 fink-tns>=0.14
 
