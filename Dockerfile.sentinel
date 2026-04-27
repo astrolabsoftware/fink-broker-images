@@ -99,7 +99,7 @@ ENV BINPATH="$PATH"
 
 ENV FINK_HOME=/workspace/fink-broker
 ENV FINK_ALERT_SIMULATOR=${FINK_HOME}/fink-alert-simulator/rootfs/fink
-ENV FINK_SCHEMA=${FINK_HOME}/fink-alert-schemas"
+ENV FINK_SCHEMA=${FINK_HOME}/fink-alert-schemas
 ENV PYTHONPATH=${FINK_HOME}:${FINK_ALERT_SIMULATOR}:${PYTHONPATH}
 ENV KAFKA_OPTS=-Djava.net.preferIPv4Stack=True
 ENV PATH={FINK_HOME}/bin:${FINK_ALERT_SIMULATOR}/bin:${PATH}
