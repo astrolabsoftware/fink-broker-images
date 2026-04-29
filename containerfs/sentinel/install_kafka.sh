@@ -57,3 +57,13 @@ fi
 wget --quiet --no-check-certificate https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz
 tar -zxvf kafka_2.12-${KAFKA_VERSION}.tgz
 rm kafka_2.12-${KAFKA_VERSION}.tgz
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONF_FILE="$SCRIPT_DIR/kafka-server.properties"
+
+export KAFKA_HOME=$PWD/kafka_2.12-${KAFKA_VERSION}
+
+if [[ -f "$CONF_FILE" ]]; then 
+  echo " Copying custom configuration..."
+  cp "$CONF_FILE" "${KAFKA_HOME}/config/server.properties"
+fi 
