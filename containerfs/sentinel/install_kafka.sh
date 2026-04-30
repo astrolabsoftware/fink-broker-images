@@ -58,12 +58,9 @@ wget --quiet --no-check-certificate https://archive.apache.org/dist/kafka/${KAFK
 tar -zxvf kafka_2.12-${KAFKA_VERSION}.tgz
 rm kafka_2.12-${KAFKA_VERSION}.tgz
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONF_FILE="$SCRIPT_DIR/kafka-server.properties"
-
 export KAFKA_HOME=$PWD/kafka_2.12-${KAFKA_VERSION}
-
-if [[ -f "$CONF_FILE" ]]; then 
-  echo " Copying custom configuration..."
-  cp "$CONF_FILE" "${KAFKA_HOME}/config/server.properties"
-fi 
+# override default server.properties (setting num.partition=10)
+echo " Copying custom configuration..."
+curl -s https://raw.githubusercontent.com/apache/kafka/${KAFKA_VERSION}/config/server.properties  \
+ | sed 's/^num.partitions=.*/num.partitions=10/' \
+ > "${KAFKA_HOME}/config/server.properties"
