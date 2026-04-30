@@ -10,4 +10,4 @@ fink_MM @ https://github.com/FusRoman/Fink_MM/archive/v0.22.1.zip
 torch==1.12.0+cpu
 
 # SOCCA
-asteroid_spinprops==1.3.7
+git+https://gitlab.com/odysseas_xenos/asteroid-spinprops@f9da5d07ea9f9e2fee9e612fbd2dee2a54435875
