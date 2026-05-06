@@ -106,7 +106,7 @@ ENV PATH={FINK_HOME}/bin:${FINK_ALERT_SIMULATOR}/bin:${PATH}
 
 # Install Java and useful utilities
 RUN dnf -y update \
-&& dnf -y install which git wget java-11-openjdk \
+&& dnf -y install which git wget java-11-openjdk procps \
 && dnf -y clean all \
 && rm -rf /var/cache
 
