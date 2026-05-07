@@ -26,6 +26,7 @@ ENV FINK_BROKER_ROOT=/opt/fink-broker
 
 WORKDIR $FINK_BROKER_ROOT
 COPY containerfs/sentinel/ $FINK_BROKER_ROOT/sentinel/
+RUN chmod +x $FINK_BROKER_ROOT/sentinel/entrypoint.sh
 COPY containerfs/${SURVEY}/ $FINK_BROKER_ROOT/${SURVEY}/
 COPY containerfs/install_python_deps.sh $FINK_BROKER_ROOT/
 COPY containerfs/install_miniconda.sh $FINK_BROKER_ROOT/
@@ -110,4 +111,5 @@ RUN dnf -y update \
 && dnf -y clean all \
 && rm -rf /var/cache
 
-CMD ["sh", "-c", "${FINK_BROKER_ROOT}/sentinel/start_services.sh && /bin/bash"]
+ENTRYPOINT ["/opt/fink-broker/sentinel/entrypoint.sh"]
+CMD ["/bin/bash"]
