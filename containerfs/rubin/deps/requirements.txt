@@ -17,7 +17,7 @@ fastavro==1.9.4
 
 # Fink core
 fink_filters>=7.33
-fink-utils>=0.61.0
+fink-utils>=0.62.0
 fink-spins>=0.3.8
 fink-tns>=0.14
 
