@@ -75,7 +75,11 @@ rm spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz
 
 export SPARK_HOME=$PWD/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}
 
-echo "spark.yarn.jars=${SPARK_HOME}/jars/*.jar" > ${SPARK_HOME}/conf/spark-defaults.conf
+cat > ${SPARK_HOME}/conf/spark-defaults.conf <<EOF
+spark.yarn.jars=${SPARK_HOME}/jars/*.jar
+spark.driver.extraJavaOptions=-Dlog4j.logger.org.apache.hadoop.util.NativeCodeLoader=ERROR
+spark.executor.extraJavaOptions=-Dlog4j.logger.org.apache.hadoop.util.NativeCodeLoader=ERROR
+EOF
 
 if [[ $SPARK_VERSION == 2* ]]; then
   echo "ARROW_PRE_0_15_IPC_FORMAT=1" > ${SPARK_HOME}/conf/spark-env.sh
