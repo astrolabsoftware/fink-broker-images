@@ -66,7 +66,7 @@ curl -s https://raw.githubusercontent.com/apache/kafka/${KAFKA_VERSION}/config/s
  > "${FINK_BROKER_ROOT}/kafka_2.12-${KAFKA_VERSION}/config/server.properties"
 =======
 echo "Downloading kafka_2.12-${KAFKA_VERSION}.tgz"
-curl -fsSL --insecure \
+curl -fsSL --insecure -C - \
   --retry 5 --retry-delay 3 --retry-all-errors \
   --connect-timeout 30 --max-time 600 \
   -o "kafka_2.12-${KAFKA_VERSION}.tgz" \

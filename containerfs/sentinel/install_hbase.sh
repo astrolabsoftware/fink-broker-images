@@ -55,7 +55,7 @@ if [[ $HBASE_VERSION == "" ]]; then
 fi
 
 echo "Downloading hbase-${HBASE_VERSION}-bin.tar.gz"
-curl -fsSL \
+curl -fsSL -C - \
   --retry 5 --retry-delay 3 --retry-all-errors \
   --connect-timeout 30 --max-time 600 \
   -o "hbase-${HBASE_VERSION}-bin.tar.gz" \

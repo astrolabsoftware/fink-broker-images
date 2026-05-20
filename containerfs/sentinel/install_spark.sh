@@ -70,7 +70,7 @@ if [[ $HADOOP_VERSION == "" ]]; then
 fi
 
 echo "Downloading spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz"
-curl -fsSL \
+curl -fsSL -C - \
   --retry 5 --retry-delay 3 --retry-all-errors \
   --connect-timeout 30 --max-time 600 \
   -o "spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz" \
