@@ -69,7 +69,10 @@ if [[ $HADOOP_VERSION == "" ]]; then
   exit
 fi
 
-wget --quiet https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz
+curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
+    https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz -o spark.tgz \
+    && tar -xzf spark.tgz -C /opt && rm spark.tgz
+
 tar -xf spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz
 rm spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz
 

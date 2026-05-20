@@ -54,7 +54,11 @@ if [[ $KAFKA_VERSION == "" ]]; then
   exit
 fi
 
-wget --quiet --no-check-certificate https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz
+
+curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
+    https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz -o kafka.tgz \
+    && tar -xzf kafka.tgz -C /opt && rm kafka.tgz
+
 tar -zxvf kafka_2.12-${KAFKA_VERSION}.tgz
 rm kafka_2.12-${KAFKA_VERSION}.tgz
 
