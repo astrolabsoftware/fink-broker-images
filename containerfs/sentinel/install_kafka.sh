@@ -54,6 +54,7 @@ if [[ $KAFKA_VERSION == "" ]]; then
   exit
 fi
 
+<<<<<<< HEAD
 curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
     https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz -o kafka.tgz \
     && tar -xzf kafka.tgz -C ${FINK_BROKER_ROOT} && rm kafka.tgz
@@ -63,3 +64,19 @@ echo " Copying custom configuration..."
 curl -s https://raw.githubusercontent.com/apache/kafka/${KAFKA_VERSION}/config/server.properties  \
  | sed 's/^num.partitions=.*/num.partitions=10/' \
  > "${FINK_BROKER_ROOT}/kafka_2.12-${KAFKA_VERSION}/config/server.properties"
+=======
+echo "Downloading kafka_2.12-${KAFKA_VERSION}.tgz"
+curl -fsSL --insecure \
+  --retry 5 --retry-delay 3 --retry-all-errors \
+  --connect-timeout 30 --max-time 600 \
+  -o "kafka_2.12-${KAFKA_VERSION}.tgz" \
+  "https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz"
+tar -zxvf kafka_2.12-${KAFKA_VERSION}.tgz -C ${FINK_BROKER_ROOT}
+rm kafka_2.12-${KAFKA_VERSION}.tgz
+
+# override default server.properties (setting num.partition=10)
+echo " Copying custom configuration..."
+curl -s https://raw.githubusercontent.com/apache/kafka/${KAFKA_VERSION}/config/server.properties  \
+ | sed 's/^num.partitions=.*/num.partitions=10/' \
+ > "${FINK_BROKER_ROOT}/kafka_2.12-${KAFKA_VERSION}/config/server.properties"
+>>>>>>> caa317e (Replace wget with curl in install scripts for better reliability and GHA compatibility)
