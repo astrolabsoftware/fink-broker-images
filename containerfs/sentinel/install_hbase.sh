@@ -54,6 +54,11 @@ if [[ $HBASE_VERSION == "" ]]; then
   exit
 fi
 
-wget --quiet https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz
+wget --connect-timeout=15 \
+  --read-timeout=30 \
+  --tries=3 \
+  --progress=dot:giga \
+https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz
+
 tar -zxvf hbase-${HBASE_VERSION}-bin.tar.gz
 rm hbase-${HBASE_VERSION}-bin.tar.gz
