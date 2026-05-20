@@ -3,6 +3,7 @@ name: "build-image: platform=k8s, survey=ztf, science=false"
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
     branches: [main]
   workflow_dispatch:

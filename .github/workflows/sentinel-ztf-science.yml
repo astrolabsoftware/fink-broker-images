@@ -3,6 +3,7 @@ name: "build-image: platform=sentinel, survey=ztf, science=true"
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
     branches: [main]
   workflow_dispatch:
