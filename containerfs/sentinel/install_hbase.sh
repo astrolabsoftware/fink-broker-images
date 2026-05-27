@@ -56,4 +56,4 @@ fi
 
 curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
     https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -o hbase.tgz \
-    && tar -xzf hbase.tgz -C ${PWD} && rm hbase.tgz
+    && tar -xzf hbase.tgz -C ${FINK_BROKER_ROOT} && rm hbase.tgz

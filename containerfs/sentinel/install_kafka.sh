@@ -54,7 +54,7 @@ if [[ $KAFKA_VERSION == "" ]]; then
   exit
 fi
 
-export KAFKA_HOME=$PWD/kafka_2.12-${KAFKA_VERSION}
+export KAFKA_HOME=${FINK_BROKER_ROOT}/kafka_2.12-${KAFKA_VERSION}
 mkdir -p ${KAFKA_HOME}
 
 curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
