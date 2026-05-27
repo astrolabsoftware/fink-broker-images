@@ -71,12 +71,9 @@ fi
 
 curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
     https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz -o spark.tgz \
-    && tar -xzf spark.tgz -C /opt && rm spark.tgz
+    && tar -xzf spark.tgz -C ${FINK_BROKER_ROOT} && rm spark.tgz
 
-tar -xf spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz
-rm spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz
-
-export SPARK_HOME=$PWD/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}
+export SPARK_HOME=$FINK_BROKER_ROOT/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}
 
 cat > ${SPARK_HOME}/conf/spark-defaults.conf <<EOF
 spark.yarn.jars=${SPARK_HOME}/jars/*.jar
