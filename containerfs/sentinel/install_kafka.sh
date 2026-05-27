@@ -54,15 +54,13 @@ if [[ $KAFKA_VERSION == "" ]]; then
   exit
 fi
 
+export KAFKA_HOME=$PWD/kafka_2.12-${KAFKA_VERSION}
+mkdir -p ${KAFKA_HOME}
 
 curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
     https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz -o kafka.tgz \
-    && tar -xzf kafka.tgz -C /opt && rm kafka.tgz
+    && tar -xzf kafka.tgz -C ${KAFKA_HOME} && rm kafka.tgz
 
-tar -zxvf kafka_2.12-${KAFKA_VERSION}.tgz
-rm kafka_2.12-${KAFKA_VERSION}.tgz
-
-export KAFKA_HOME=$PWD/kafka_2.12-${KAFKA_VERSION}
 # override default server.properties (setting num.partition=10)
 echo " Copying custom configuration..."
 curl -s https://raw.githubusercontent.com/apache/kafka/${KAFKA_VERSION}/config/server.properties  \
