@@ -75,7 +75,7 @@ curl -fsSL -C - \
   --connect-timeout 30 --speed-limit 1024 --speed-time 30 \
   -o "spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz" \
   "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz"
-tar -xf spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz -C ${FINK_BROKER_ROOT}
+tar -xzf "spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz" -C "${FINK_BROKER_ROOT}"
 rm spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}.tgz
 
 export SPARK_HOME=$FINK_BROKER_ROOT/spark-${SPARK_VERSION}-bin-${HADOOP_VERSION}
