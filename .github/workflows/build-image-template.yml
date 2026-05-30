@@ -30,7 +30,7 @@ on:
       registry_token:
 
 env:
-  CIUX_VERSION: v0.0.7-rc1
+  CIUX_VERSION: v0.0.7-rc3
   REGISTRY: gitlab-registry.in2p3.fr
 
 jobs:

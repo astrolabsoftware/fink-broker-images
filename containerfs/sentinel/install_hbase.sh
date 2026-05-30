@@ -54,6 +54,11 @@ if [[ $HBASE_VERSION == "" ]]; then
   exit
 fi
 
-curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
-    https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz -o hbase.tgz \
-    && tar -xzf hbase.tgz -C ${FINK_BROKER_ROOT} && rm hbase.tgz
+echo "Downloading hbase-${HBASE_VERSION}-bin.tar.gz"
+curl -fsSL -C - \
+  --retry 5 --retry-delay 3 --retry-all-errors \
+  --connect-timeout 30 --speed-limit 1024 --speed-time 30 \
+  -o "hbase-${HBASE_VERSION}-bin.tar.gz" \
+  "https://archive.apache.org/dist/hbase/${HBASE_VERSION}/hbase-${HBASE_VERSION}-bin.tar.gz"
+tar -zxvf hbase-${HBASE_VERSION}-bin.tar.gz -C ${FINK_BROKER_ROOT}
+rm hbase-${HBASE_VERSION}-bin.tar.gz

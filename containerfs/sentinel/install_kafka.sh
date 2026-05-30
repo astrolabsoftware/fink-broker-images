@@ -54,9 +54,14 @@ if [[ $KAFKA_VERSION == "" ]]; then
   exit
 fi
 
-curl -fL --connect-timeout 15 --max-time 300 --retry 5 --retry-delay 5 \
-    https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz -o kafka.tgz \
-    && tar -xzf kafka.tgz -C ${FINK_BROKER_ROOT} && rm kafka.tgz
+echo "Downloading kafka_2.12-${KAFKA_VERSION}.tgz"
+curl -fsSL --insecure -C - \
+  --retry 5 --retry-delay 3 --retry-all-errors \
+  --connect-timeout 30 --speed-limit 1024 --speed-time 30 \
+  -o "kafka_2.12-${KAFKA_VERSION}.tgz" \
+  "https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz"
+tar -zxvf kafka_2.12-${KAFKA_VERSION}.tgz -C ${FINK_BROKER_ROOT}
+rm kafka_2.12-${KAFKA_VERSION}.tgz
 
 # override default server.properties (setting num.partition=10)
 echo " Copying custom configuration..."
