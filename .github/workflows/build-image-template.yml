@@ -48,6 +48,9 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
+      - name: Fetch tags
+        run: git fetch --tags --force
+
       - name: Maximize build space
         run: |
           echo "Removing unwanted software... "
