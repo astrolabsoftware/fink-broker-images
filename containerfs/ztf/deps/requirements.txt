@@ -21,7 +21,7 @@ fastavro==1.6.0
 fink_filters>=7.35
 fink-utils>=0.69.0
 fink-spins>=0.3.8
-fink-tns>=0.14
+fink-tns>=1.0
 
 # Misc
 slack_sdk>=3.21.3
