@@ -17,7 +17,7 @@ fastavro==1.9.4
 
 # Fink core
 fink_filters>=7.35
-fink-utils>=0.68.0
+git+https://github.com/astrolabsoftware/fink-utils@fix/remove-pandas-udf-type
 fink-spins>=0.3.8
 fink-tns>=0.14
 
