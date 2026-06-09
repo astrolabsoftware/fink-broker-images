@@ -1,6 +1,6 @@
 # Fink-science dependencies
-# WARNING: fink-science pip module is deprecated and fink-science is now installed from source
 
+# WARNING: fink-science pip module is deprecated and fink-science is now installed from source
 git+https://github.com/astrolabsoftware/fink-science@fix/remove-pandas-udf-type
 
 # xmatch_cds
