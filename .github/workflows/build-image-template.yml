@@ -46,6 +46,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          fetch-tags: true
+
+      - name: Fetch tags
+        run: git fetch --tags --force
 
       - name: Maximize build space
         run: |
@@ -106,9 +110,9 @@ jobs:
           echo "## 🐳 Built Image" >> $GITHUB_STEP_SUMMARY
           echo "**Image URL:** \`${{ steps.build.outputs.image-url }}\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "```bash" >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
           echo "docker pull ${{ steps.build.outputs.image-url }}" >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
           # Push with latest tag if on main branch
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
@@ -126,9 +130,9 @@ jobs:
           echo "## ♻️ Existing Image" >> $GITHUB_STEP_SUMMARY
           echo "**Image URL:** \`${{ steps.build.outputs.image-url }}\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "```bash" >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
           echo "docker pull ${{ steps.build.outputs.image-url }}" >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
           echo "*No new build was needed - image already exists*" >> $GITHUB_STEP_SUMMARY
 
       - name: Apply version tag to existing image
