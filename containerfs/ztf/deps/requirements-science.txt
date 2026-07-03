@@ -46,7 +46,8 @@ importlib-resources==5.9.0
 
 # SSOFT
 nifty-ls
-space-rocks==1.10.1
+# v1.10.1 with pyarrow 21
+git+https://github.com/maxmahlke/rocks@5ab5f0cacc8d1fec5ea1a3061a8bca027d74f838
 
 # Superluminous SN
 sncosmo==2.12.1

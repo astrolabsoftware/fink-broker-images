@@ -30,6 +30,7 @@ tensorflow==2.19.0
 iminuit==2.31.1
 
 # SSO
-space-rocks==1.10.1
+# v1.10.1 with pyarrow 21
+git+https://github.com/maxmahlke/rocks@5ab5f0cacc8d1fec5ea1a3061a8bca027d74f838
 pydantic==2.5.2
 pydantic_core==2.14.5
