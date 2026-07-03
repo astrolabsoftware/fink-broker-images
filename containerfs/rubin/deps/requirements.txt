@@ -1,7 +1,7 @@
 # Dependencies for Fink
 numpy==1.26.4
 pandas==1.5.3
-pyarrow==16.1.0
+pyarrow==21.0.0
 scipy
 scikit-learn==1.5.2
 Cython
