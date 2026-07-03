@@ -30,6 +30,6 @@ tensorflow==2.19.0
 iminuit==2.31.1
 
 # SSO
-space-rocks
+space-rocks==1.10.1
 pydantic==2.5.2
 pydantic_core==2.14.5

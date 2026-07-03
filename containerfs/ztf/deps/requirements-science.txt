@@ -46,7 +46,7 @@ importlib-resources==5.9.0
 
 # SSOFT
 nifty-ls
-space-rocks
+space-rocks==1.10.1
 
 # Superluminous SN
 sncosmo==2.12.1
