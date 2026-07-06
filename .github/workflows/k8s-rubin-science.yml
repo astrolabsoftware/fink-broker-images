@@ -2,6 +2,7 @@ name: "build-image: platform=k8s, survey=rubin, science=true"
 
 on:
   push:
+    branches: [main]
     tags: ['v*']
   pull_request:
     branches: [main]

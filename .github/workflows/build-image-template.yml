@@ -94,7 +94,7 @@ jobs:
 
       - name: Login to GitLab Registry
         uses: docker/login-action@v2
-        if: steps.build.outputs.new-build == 'true' || (steps.build.outputs.new-build == 'false' && github.ref_type == 'tag')
+        if: steps.build.outputs.new-build == 'true' || (steps.build.outputs.new-build == 'false' && (github.ref_type == 'tag' || github.ref == 'refs/heads/main'))
         with:
           registry: gitlab-registry.in2p3.fr
           username: ${{ secrets.registry_username }}
@@ -144,6 +144,16 @@ jobs:
           skopeo copy docker://"$IMAGE_URL" docker://"$VERSION_TAG"
           echo "## 🏷️ Version Tag Applied" >> $GITHUB_STEP_SUMMARY
           echo "**Version tag:** \`$VERSION_TAG\`" >> $GITHUB_STEP_SUMMARY
+
+      - name: Apply latest tag to existing image
+        if: steps.build.outputs.new-build == 'false' && github.ref == 'refs/heads/main'
+        run: |
+          IMAGE_URL="${{ steps.build.outputs.image-url }}"
+          LATEST_TAG=$(echo "$IMAGE_URL" | sed 's/:[^:]*$/:latest/')
+          echo "Copying $IMAGE_URL -> $LATEST_TAG"
+          skopeo copy docker://"$IMAGE_URL" docker://"$LATEST_TAG"
+          echo "## 🏷️ Latest Tag Applied" >> $GITHUB_STEP_SUMMARY
+          echo "**Latest tag:** \`$LATEST_TAG\`" >> $GITHUB_STEP_SUMMARY
 
   scan:
     name: "Scan ${{ inputs.target }} ${{ inputs.survey }}${{ inputs.suffix && format(' {0}', inputs.suffix) || '' }}"
