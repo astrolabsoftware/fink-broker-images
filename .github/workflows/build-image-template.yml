@@ -114,16 +114,6 @@ jobs:
           echo "docker pull ${{ steps.build.outputs.image-url }}" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
-          # Push with latest tag if on main branch
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            LATEST_TAG=$(echo "${{ steps.build.outputs.image-url }}" | sed 's/:[^:]*$/:latest/')
-            echo "Tagging and pushing latest: $LATEST_TAG"
-            docker tag "${{ steps.build.outputs.image-url }}" "$LATEST_TAG"
-            docker push "$LATEST_TAG"
-            echo "**Latest tag:** \`$LATEST_TAG\`" >> $GITHUB_STEP_SUMMARY
-          fi
-
-
       - name: Display existing image info
         if: steps.build.outputs.new-build == 'false'
         run: |
@@ -135,7 +125,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
           echo "*No new build was needed - image already exists*" >> $GITHUB_STEP_SUMMARY
 
-      - name: Apply version tag to existing image
+      - name: Apply version tag to image built during a previous workflow run
         if: steps.build.outputs.new-build == 'false' && github.ref_type == 'tag'
         run: |
           IMAGE_URL="${{ steps.build.outputs.image-url }}"
@@ -145,8 +135,8 @@ jobs:
           echo "## 🏷️ Version Tag Applied" >> $GITHUB_STEP_SUMMARY
           echo "**Version tag:** \`$VERSION_TAG\`" >> $GITHUB_STEP_SUMMARY
 
-      - name: Apply latest tag to existing image
-        if: steps.build.outputs.new-build == 'false' && github.ref == 'refs/heads/main'
+      - name: Apply latest tag
+        if: github.ref == 'refs/heads/main'
         run: |
           IMAGE_URL="${{ steps.build.outputs.image-url }}"
           LATEST_TAG=$(echo "$IMAGE_URL" | sed 's/:[^:]*$/:latest/')
