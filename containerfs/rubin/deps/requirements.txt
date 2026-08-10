@@ -16,8 +16,8 @@ avro-python3
 fastavro==1.9.4
 
 # Fink core
-fink_filters>=7.37
-fink-utils>=0.72.0
+fink_filters>=7.38
+fink-utils>=0.73.0
 fink-spins>=0.3.8
 fink-tns>=1.0
 
