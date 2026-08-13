@@ -128,6 +128,7 @@ elif [[ "$MODE" == "science" ]]; then
     if [[ "$SURVEY" == "ztf" ]]; then
         echo "Initializing dustmaps for ZTF..."
         python -c "
+from dustmaps.config import config
 import dustmaps.sfd
 import json
 import requests
