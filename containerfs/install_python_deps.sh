@@ -127,7 +127,29 @@ elif [[ "$MODE" == "science" ]]; then
     # ZTF-specific: dustmaps initialization
     if [[ "$SURVEY" == "ztf" ]]; then
         echo "Initializing dustmaps for ZTF..."
-        python -c "from dustmaps.config import config;import dustmaps.sfd;dustmaps.sfd.fetch()"
+        python -c "
+import dustmaps.sfd
+import json
+import requests
+import os
+
+# Copied from website https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5
+fallback_url = 'https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/EWCNL5/157bb43e038-2856c7e44170?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27SFD_dust_4096_ngp.fits&response-content-type=application%2Ffits&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260813T085926Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20260813%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=58ebac36855672a4f468ddc268d37444d8ec4a8275278ae143471566d35c06b1'
+
+fname = '/tmp/sfd/SFD_dust_4096_ngp.fits'
+try:
+    dustmaps.sfd.fetch()
+except json.decoder.JSONDecodeError:
+    r = requests.get(fallback_url)
+    
+    # Make sure the directory it's going into exists
+    dir_name = os.path.dirname(fname)
+    if not os.path.exists(dir_name):
+        os.makedirs(dir_name)
+
+    with open(fname, 'wb') as f:
+        f.write(r.content)
+"
     fi
 fi
 
