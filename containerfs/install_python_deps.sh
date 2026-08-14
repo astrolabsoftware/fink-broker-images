@@ -144,7 +144,7 @@ try:
     dustmaps.sfd.fetch()
 except json.decoder.JSONDecodeError:
     r_ngp = requests.get(fallback_url_ngp)
-    s_ngp = requests.get(fallback_url_sgp)
+    r_sgp = requests.get(fallback_url_sgp)
     
     # Make sure the directory it's going into exists
     dir_name = os.path.dirname(fname_ngp)
