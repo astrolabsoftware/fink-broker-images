@@ -135,21 +135,26 @@ import requests
 import os
 
 # Copied from website https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5
-fallback_url = 'https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/EWCNL5/157bb43e038-2856c7e44170?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27SFD_dust_4096_ngp.fits&response-content-type=application%2Ffits&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260814T093733Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20260814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8923c750d5940b61342b534ede2404edb2648537ad2ada0f02b38787c97a4740'
+fallback_url_ngp = 'https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/EWCNL5/157bb43e038-2856c7e44170?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27SFD_dust_4096_ngp.fits&response-content-type=application%2Ffits&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260814T093733Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20260814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=8923c750d5940b61342b534ede2404edb2648537ad2ada0f02b38787c97a4740'
+fallback_url_sgp = 'https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/EWCNL5/157bb8a4df2-7537b98d9920?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27SFD_dust_4096_sgp.fits&response-content-type=application%2Ffits&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260814T122317Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20260814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=93bdce7da721380478818440885d678a97a50d9050b1afe4037ca411df80b7bb'
 
-fname = '/opt/fink-broker/miniconda/lib/python3.9/site-packages/dustmaps/data/sfd/SFD_dust_4096_ngp.fits'
+fname_ngp = '/opt/fink-broker/miniconda/lib/python3.9/site-packages/dustmaps/data/sfd/SFD_dust_4096_ngp.fits'
+fname_sgp = '/opt/fink-broker/miniconda/lib/python3.9/site-packages/dustmaps/data/sfd/SFD_dust_4096_sgp.fits'
 try:
     dustmaps.sfd.fetch()
 except json.decoder.JSONDecodeError:
-    r = requests.get(fallback_url)
+    r_ngp = requests.get(fallback_url_ngp)
+    s_ngp = requests.get(fallback_url_sgp)
     
     # Make sure the directory it's going into exists
-    dir_name = os.path.dirname(fname)
+    dir_name = os.path.dirname(fname_ngp)
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
 
-    with open(fname, 'wb') as f:
-        f.write(r.content)
+    with open(fname_ngp, 'wb') as f:
+        f.write(r_ngp.content)
+    with open(fname_sgp, 'wb') as f:
+        f.write(r_sgp.content)
 "
     fi
 fi
