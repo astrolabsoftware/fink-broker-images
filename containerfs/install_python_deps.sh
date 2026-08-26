@@ -127,7 +127,7 @@ elif [[ "$MODE" == "science" ]]; then
     # ZTF-specific: dustmaps initialization
     if [[ "$SURVEY" == "ztf" ]]; then
         echo "Initializing dustmaps for ZTF..."
-        python -c "from dustmaps.config import config;import dustmaps.sfd;dustmaps.sfd.fetch()"
+        python -c "import requests.utils;requests.utils.default_user_agent = lambda: 'Mozilla/5.0';from dustmaps.config import config;import dustmaps.sfd;dustmaps.sfd.fetch()"
     fi
 fi
 
