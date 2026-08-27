@@ -1,6 +1,6 @@
 # Fink-science dependencies
 
-git+https://github.com/astrolabsoftware/fink-science@8.56.0
+git+https://github.com/astrolabsoftware/fink-science@8.57.0
 
 # xmatch_cds
 line_profiler==4.1.3
