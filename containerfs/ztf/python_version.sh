@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2019-2025 AstroLab Software
+# Copyright 2019-2026 AstroLab Software
 # Author: Fabrice Jammes
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,4 +15,4 @@
 # limitations under the License.
 
 # Python version for ZTF survey
-export PYTHON_VERSION=py39_4.11.0
+export PYTHON_VERSION=py313_26.7.1.0
