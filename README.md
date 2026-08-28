@@ -50,7 +50,7 @@ This repository provides a unified build system with the following structure:
 ### Container Filesystem (`containerfs/`)
 - **install_miniconda.sh**: Python environment installation
 - **install_python_deps.sh**: Unified Python dependency installer
-- **k8s/jars-urls.txt**: Spark JAR dependencies for Kubernetes images
+- **k8s/jars-urls.${input_survey}.txt**: Spark JAR dependencies for Kubernetes images (per survey)
 - **sentinel/**: Service installation scripts (Kafka, HBase, Spark) and startup scripts
 - **rubin/deps/**: Rubin survey-specific Python requirements
 - **ztf/deps/**: ZTF survey-specific Python requirements
@@ -160,7 +160,7 @@ d3eeb8e94cd6: Pushed
 
 To create your own image with specific versions, you can:
 
-1. **For K8s images**: Modify `Dockerfile.k8s` and the dependencies in `containerfs/k8s/jars-urls.txt` or survey-specific dependencies in `containerfs/<survey>/deps/`
+1. **For K8s images**: Modify `Dockerfile.k8s` and the dependencies in `containerfs/k8s/jars-urls.${input_survey}.txt` or survey-specific dependencies in `containerfs/<survey>/deps/`
 
 2. **For sentinel images**: Modify `Dockerfile.sentinel` and the service installation scripts in `containerfs/sentinel/`
 
