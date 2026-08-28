@@ -15,4 +15,4 @@
 # limitations under the License.
 
 # Python version for ZTF survey
-export PYTHON_VERSION=py313_26.7.1-0
+export PYTHON_VERSION=py314_26.7.1-0
