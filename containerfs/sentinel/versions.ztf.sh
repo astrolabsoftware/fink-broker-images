@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Software versions for ZTF survey (Python version managed separately)
-export SPARK_VERSION=4.2.0
+export SPARK_VERSION=3.5.9
 export HBASE_VERSION=2.5.15
 export KAFKA_VERSION=3.9.2
 export HADOOP_VERSION=hadoop3
