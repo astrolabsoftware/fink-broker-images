@@ -32,7 +32,7 @@ COPY containerfs/install_python_deps.sh $FINK_BROKER_ROOT/
 COPY containerfs/install_miniconda.sh $FINK_BROKER_ROOT/
 
 # Define Java home path
-ENV JAVA_HOME="/usr/lib/jvm/jre-11-openjdk"
+ENV JAVA_HOME="/usr/lib/jvm/jre-17-openjdk"
 
 # Install system build dependencies
 RUN dnf clean all && rm -r /var/cache/dnf && dnf -y update \
@@ -72,7 +72,7 @@ ENV SURVEY=$input_survey
 
 ENV FINK_BROKER_ROOT=/opt/fink-broker
 # Redefine JAVA_HOME for the runtime stage
-ENV JAVA_HOME="/usr/lib/jvm/jre-11-openjdk"
+ENV JAVA_HOME="/usr/lib/jvm/jre-17-openjdk"
 
 WORKDIR $FINK_BROKER_ROOT
 
@@ -107,7 +107,7 @@ ENV PATH=${FINK_HOME}/bin:${FINK_ALERT_SIMULATOR}/bin:${PATH}
 
 # Install Java and useful utilities
 RUN dnf -y update \
-&& dnf -y install which git wget java-11-openjdk procps \
+&& dnf -y install which git wget java-17-openjdk procps \
 && dnf -y clean all \
 && rm -rf /var/cache
 
