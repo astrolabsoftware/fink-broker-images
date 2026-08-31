@@ -1,9 +1,9 @@
 # Dependencies for Fink
-numpy==1.23.5
-pandas==1.3.5
-pyarrow==21.0.0
+numpy
+pandas<=3.0.0
+pyarrow
 scipy
-scikit-learn==1.0.2
+scikit-learn
 scikit-image
 Cython
 
@@ -13,9 +13,9 @@ astropy
 astroquery
 
 # > 1.9. see https://github.com/edenhill/librdkafka/issues/3263
-confluent-kafka==1.9.2
+confluent-kafka
 avro-python3
-fastavro==1.6.0
+fastavro
 
 # Fink core
 fink_filters>=7.41
