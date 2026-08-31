@@ -3,9 +3,8 @@ fink_fat @ https://github.com/FusRoman/fink-fat/archive/v0.17.0.zip
 sbpy
 
 # Installation of torch without GPU support (lighter)
---index-url https://download.pytorch.org/whl/cpu.html
-torch==2.13.0
---index-url https://pypi.python.org/simple
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==2.13.0+cpu
 
 # SOCCA
 git+https://gitlab.com/odysseas_xenos/asteroid-spinprops@f27be6983fe66be74c945fc1a9e0c356e4ca3249

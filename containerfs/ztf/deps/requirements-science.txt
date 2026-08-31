@@ -14,14 +14,14 @@ joblib==1.2.0
 git+https://github.com/JulienPeloton/LIA.git@166243822f27c338569b3bdafc42d55e385cf7e6#egg=LIA
 
 # supernnova -- elasticc branch
-git+https://github.com/supernnova/SuperNNova.git@fcf8584b64974ef7a238eac718e01be4ed637a1d#egg=supernnova
+git+https://github.com/JulienPeloton/SuperNNova.git@330dd772422630ebd4e346c535c036532050c8ee#egg=supernnova
 h5py
 natsort
 colorama
 seaborn
 
 # SNAD
-light-curve[full]
+light-curve[full]==0.10.4
 
 # CATS dependencies
 tensorflow

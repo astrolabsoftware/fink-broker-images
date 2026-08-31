@@ -1,6 +1,6 @@
 # Dependencies for Fink
 numpy
-pandas<=3.0.0
+pandas<3.0.0
 pyarrow
 scipy
 scikit-learn
