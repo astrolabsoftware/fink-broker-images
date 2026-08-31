@@ -11,7 +11,7 @@ git+https://github.com/COINtoolbox/ActSNClass.git@2c61da91a9d13834d39804fc35aeb3
 joblib==1.2.0
 
 # microlensing
-git+https://github.com/JulienPeloton/LIA.git@4513654b15a0760312eff2661b0fcf4989171ce3#egg=LIA
+git+https://github.com/JulienPeloton/LIA.git@166243822f27c338569b3bdafc42d55e385cf7e6#egg=LIA
 
 # supernnova -- elasticc branch
 git+https://github.com/supernnova/SuperNNova.git@fcf8584b64974ef7a238eac718e01be4ed637a1d#egg=supernnova
