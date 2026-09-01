@@ -12,11 +12,11 @@ git+https://github.com/COINtoolbox/ActSNClass.git@2c61da91a9d13834d39804fc35aeb3
 joblib==1.2.0
 
 # supernnova deps
+git+https://github.com/JulienPeloton/SuperNNova.git@330dd772422630ebd4e346c535c036532050c8ee#egg=supernnova
 h5py
 natsort
 colorama
 seaborn
-tqdm
 
 # SNAD
 light-curve[full]==0.10.4

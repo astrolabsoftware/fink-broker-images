@@ -1,5 +1,3 @@
-supernnova==3.0.21
-
 # SOCCA
 git+https://gitlab.com/odysseas_xenos/asteroid-spinprops@f9da5d07ea9f9e2fee9e612fbd2dee2a54435875
 
