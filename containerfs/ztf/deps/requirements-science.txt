@@ -39,7 +39,7 @@ git+https://github.com/maxmahlke/rocks@5ab5f0cacc8d1fec5ea1a3061a8bca027d74f838
 
 # Superluminous SN
 sncosmo==2.12.1
-xgboost==2.1.4
+xgboost==3.4.1
 # Need python >= 3.10 to upgrade
 dust_extinction==1.5
 
