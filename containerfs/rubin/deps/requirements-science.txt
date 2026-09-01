@@ -1,7 +1,7 @@
 # Fink-science dependencies
 # WARNING: fink-science pip module is deprecated and fink-science is now installed from source
 
-git+https://github.com/astrolabsoftware/fink-science@8.57.0
+git+https://github.com/astrolabsoftware/fink-science@9.0.0
 
 # xmatch_cds
 line_profiler==4.1.3
@@ -12,19 +12,17 @@ git+https://github.com/COINtoolbox/ActSNClass.git@2c61da91a9d13834d39804fc35aeb3
 joblib==1.2.0
 
 # supernnova deps
--f https://download.pytorch.org/whl/torch_stable.html
-torch==2.0.0+cpu
+git+https://github.com/JulienPeloton/SuperNNova.git@330dd772422630ebd4e346c535c036532050c8ee#egg=supernnova
 h5py
 natsort
 colorama
 seaborn
-tqdm
 
 # SNAD
 light-curve[full]==0.10.4
 
 # CATS dependencies
-tensorflow==2.19.0
+tensorflow
 
 # Orphans
 iminuit==2.31.1
@@ -32,8 +30,6 @@ iminuit==2.31.1
 # SSO
 # v1.10.1 with pyarrow 21
 git+https://github.com/maxmahlke/rocks@5ab5f0cacc8d1fec5ea1a3061a8bca027d74f838
-pydantic==2.5.2
-pydantic_core==2.14.5
 nifty-ls
 sbpy
 photutils
