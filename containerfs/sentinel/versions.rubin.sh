@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2019-2025 AstroLab Software
+# Copyright 2019-2026 AstroLab Software
 # Author: Fabrice Jammes
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # Software versions for Rubin survey (Python version managed separately)
-export SPARK_VERSION=3.4.3
-export HBASE_VERSION=2.5.8
-export KAFKA_VERSION=3.8.1
+export SPARK_VERSION=3.5.9
+export HBASE_VERSION=2.5.15
+export KAFKA_VERSION=3.9.2
 export HADOOP_VERSION=hadoop3
