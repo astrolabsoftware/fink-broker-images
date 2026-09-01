@@ -35,8 +35,8 @@ RUN apt-get update && \
 
 # Download and install Spark dependencies listed in jars-urls.txt
 RUN mkdir -p $FINK_BROKER_ROOT/k8s && chown ${spark_uid} $FINK_BROKER_ROOT
-ADD containerfs/k8s/jars-urls.txt $FINK_BROKER_ROOT/k8s/
-RUN xargs -n 1 curl --fail --output-dir /opt/spark/jars -O < $FINK_BROKER_ROOT/k8s/jars-urls.txt
+ADD containerfs/k8s/jars-urls.${input_survey}.txt $FINK_BROKER_ROOT/k8s/
+RUN xargs -n 1 curl --fail --output-dir /opt/spark/jars -O < $FINK_BROKER_ROOT/k8s/jars-urls.${input_survey}.txt
 
 
 # Setup for the Prometheus JMX exporter.

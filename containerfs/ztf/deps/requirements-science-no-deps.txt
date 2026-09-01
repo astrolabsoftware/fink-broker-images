@@ -2,12 +2,12 @@
 fink_fat @ https://github.com/FusRoman/fink-fat/archive/v0.17.0.zip
 sbpy
 
-# Fink MM
-fink_MM @ https://github.com/FusRoman/Fink_MM/archive/v0.22.1.zip
-
 # Installation of torch without GPU support (lighter)
--f https://download.pytorch.org/whl/torch_stable.html
-torch==1.12.0+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu
 
 # SOCCA
 git+https://gitlab.com/odysseas_xenos/asteroid-spinprops@f27be6983fe66be74c945fc1a9e0c356e4ca3249
+
+# kilonova @ sklearn==1.0.2
+git+https://github.com/b-biswas/kndetect@kndetect#egg=kndetect
