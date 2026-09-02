@@ -12,6 +12,7 @@ astropy
 astroquery
 
 confluent-kafka[avro,schemaregistry]
+authlib
 avro-python3
 fastavro
 
