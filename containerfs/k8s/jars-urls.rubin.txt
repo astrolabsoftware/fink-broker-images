@@ -1,7 +1,7 @@
-https://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10-assembly_2.13/3.5.9/spark-streaming-kafka-0-10-assembly_2.13-3.5.9.jar
-https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.13/3.5.9/spark-sql-kafka-0-10_2.13-3.5.9.jar
-https://repo1.maven.org/maven2/org/apache/spark/spark-avro_2.13/3.5.9/spark-avro_2.13-3.5.9.jar
-https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.13/3.5.9/spark-token-provider-kafka-0-10_2.13-3.5.9.jar
+https://repo1.maven.org/maven2/org/apache/spark/spark-streaming-kafka-0-10-assembly_2.12/3.5.9/spark-streaming-kafka-0-10-assembly_2.12-3.5.9.jar
+https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.9/spark-sql-kafka-0-10_2.12-3.5.9.jar
+https://repo1.maven.org/maven2/org/apache/spark/spark-avro_2.12/3.5.9/spark-avro_2.12-3.5.9.jar
+https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.9/spark-token-provider-kafka-0-10_2.12-3.5.9.jar
 https://repo1.maven.org/maven2/org/apache/hbase/hbase-shaded-mapreduce/2.5.15/hbase-shaded-mapreduce-2.5.15.jar
 https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.1/hadoop-aws-3.3.1.jar
 https://repo1.maven.org/maven2/org/spark-project/spark/unused/1.0.0/unused-1.0.0.jar
