@@ -3,7 +3,7 @@ numpy
 pandas<3.0.0
 pyarrow
 scipy
-scikit-learn
+scikit-learn==1.7.2
 scikit-image
 Cython
 
@@ -18,7 +18,7 @@ avro-python3
 fastavro
 
 # Fink core
-fink_filters>=7.42
+fink_filters>=7.43
 fink-utils>=0.77.0
 fink-spins>=0.3.8
 fink-tns>=1.0
