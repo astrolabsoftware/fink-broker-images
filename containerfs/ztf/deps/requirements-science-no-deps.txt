@@ -7,7 +7,7 @@ sbpy
 torch==2.13.0+cpu
 
 # SOCCA
-git+https://gitlab.com/odysseas_xenos/asteroid-spinprops@f27be6983fe66be74c945fc1a9e0c356e4ca3249
+git+https://gitlab.com/odysseas_xenos/asteroid-spinprops@01e3fabbf8253d3e9e91744e83dc1a286e4d8325
 
 # kilonova @ sklearn==1.0.2
 git+https://github.com/b-biswas/kndetect@kndetect#egg=kndetect
